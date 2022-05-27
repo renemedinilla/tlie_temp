@@ -1,0 +1,29 @@
+parameters:
+  library: ''
+  library_shared: ''
+  environment: ''
+  service_connection: ''
+  stage: ''
+
+stages:
+  - stage: ${{ parameters.stage }}
+    dependsOn: []
+    variables:
+    - group: ${{ parameters.library }}
+    - group: ${{ parameters.library_shared }}
+    displayName: Infrastructure ${{ parameters.stage }}
+    jobs:
+      - job: build
+        steps:
+        - task: MSBuild@1
+          displayName: 'Build solution **/rene-lopez.csproj'
+          inputs:
+            solution: '**/rene-lopez.csproj'
+            msbuildArchitecture: x64
+            msbuildArguments: '/p:DeployOnBuild=true /p:PublishProfile=FolderProfile'
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish Artifact'
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/bin/Release/net6.0/publish'
+            ArtifactName: 'blazorapp'
+          condition: succeededOrFailed()

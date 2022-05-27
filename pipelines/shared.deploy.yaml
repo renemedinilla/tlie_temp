@@ -1,0 +1,54 @@
+parameters:
+  library: ''
+  environment: ''
+  service_connection: ''
+  stage: ''
+
+stages:
+  - stage: ${{ parameters.stage }}
+    dependsOn: []
+    variables:
+    - group: ${{ parameters.library }}
+    displayName: Infrastructure ${{ parameters.stage }}
+    jobs:
+      - deployment: Approval
+        environment: ${{ parameters.environment }}
+      - job: deploy
+        steps:
+          - task: qetza.replacetokens.replacetokens-task.replacetokens@3
+            displayName: 'Replace tokens'
+            enabled: true
+            inputs:
+              rootDirectory: './azure'
+              targetFiles: |
+               **/*.json
+              escapeType: none
+              keepToken: true
+
+          - task: AzureResourceManagerTemplateDeployment@3
+            displayName: 'Validate Template'
+            enabled: true
+            inputs:
+              ConnectedServiceName: '${{ parameters.service_connection }}'
+              action: 'Create Or Update Resource Group'
+              resourceGroupName: '$(shared_resource_group_name)'
+              location: '$(shared_location)'
+              csmFile: './azure/template-shared.json'
+              csmParametersFile: './azure/parameters-shared.json'
+              deploymentMode: Validation
+              deploymentName: '${{ parameters.stage }}'
+              addSpnToEnvironment: true
+                 
+          - task: AzureResourceManagerTemplateDeployment@3
+            displayName: 'Deploy ARM Template'
+            enabled: true
+            inputs:
+              ConnectedServiceName: '${{ parameters.service_connection }}'
+              action: 'Create Or Update Resource Group'
+              resourceGroupName: '$(shared_resource_group_name)'
+              location: '$(shared_location)'
+              csmFile: './azure/template-shared.json'
+              csmParametersFile: './azure/parameters-shared.json'
+              deploymentMode: Incremental
+              deploymentName: '${{ parameters.stage }}'
+              addSpnToEnvironment: true

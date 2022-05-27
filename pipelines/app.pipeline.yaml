@@ -1,0 +1,47 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - cicd/*
+    exclude:
+      - azure/*
+ 
+pool:
+  vmImage: windows-latest
+ 
+stages:
+  - template: ./build.yaml
+    parameters:
+      library: 'Blazor Dev'
+      library_shared: 'Blazor Shared'
+      environment: 'Blazor Dev'
+      stage: 'Build'
+      service_connection: 'growth-day-2022-rene-lopez-sc'
+
+  - template: ./deploy.yaml
+    parameters:
+      library: 'Blazor Dev'
+      library_shared: 'Blazor Shared'
+      environment: 'Blazor Dev'
+      stage: 'Dev'
+      service_connection: 'growth-day-2022-rene-lopez-sc'
+
+  - template: ./deploy.yaml
+    parameters:
+      library: 'Blazor Qa'
+      library_shared: 'Blazor Shared'
+      environment: 'Blazor Qa'
+      stage: 'Qa'
+      service_connection: 'growth-day-2022-rene-lopez-sc'
+
+  - template: ./deploy.yaml
+    parameters:
+      library: 'Blazor Prod'
+      library_shared: 'Blazor Shared'
+      environment: 'Blazor Prod'
+      stage: 'Prod'
+      service_connection: 'growth-day-2022-rene-lopez-sc'
+
+      

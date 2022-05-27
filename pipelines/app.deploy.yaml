@@ -1,0 +1,32 @@
+parameters:
+  library: ''
+  library_shared: ''
+  environment: ''
+  service_connection: ''
+  stage: ''
+
+stages:
+  - stage: ${{ parameters.stage }}
+    dependsOn: build
+    variables:
+    - group: ${{ parameters.library }}
+    - group: ${{ parameters.library_shared }}
+    displayName: Blazor App ${{ parameters.stage }}
+    jobs:
+      - deployment: Approval
+        environment: ${{ parameters.environment }}
+      - job: deploy
+        steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              source: 'current'
+              artifact: blazorapp
+              path: '$(Build.SourcesDirectory)/bin' 
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: ${{ parameters.service_connection }}
+              appType: 'webApp'
+              WebAppName: $(app_service_name)
+              ResourceGroupName: $(resource_group_name)
+              Package: '$(Build.SourcesDirectory)/bin'

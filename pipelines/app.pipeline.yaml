@@ -14,34 +14,34 @@ pool:
 stages:
   - template: ./build.yaml
     parameters:
-      library: 'Blazor Dev'
-      library_shared: 'Blazor Shared'
-      environment: 'Blazor Dev'
+      library: 'Tlie Dev'
+      library_shared: 'Tlie Shared'
+      environment: 'Tlie Dev'
       stage: 'Build'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
   - template: ./deploy.yaml
     parameters:
-      library: 'Blazor Dev'
-      library_shared: 'Blazor Shared'
-      environment: 'Blazor Dev'
+      library: 'Tlie Dev'
+      library_shared: 'Tlie Shared'
+      environment: 'Tlie Dev'
       stage: 'Dev'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
   - template: ./deploy.yaml
     parameters:
-      library: 'Blazor Qa'
-      library_shared: 'Blazor Shared'
-      environment: 'Blazor Qa'
+      library: 'Tlie Qa'
+      library_shared: 'Tlie Shared'
+      environment: 'Tlie Qa'
       stage: 'Qa'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
   - template: ./deploy.yaml
     parameters:
-      library: 'Blazor Prod'
-      library_shared: 'Blazor Shared'
-      environment: 'Blazor Prod'
+      library: 'Tlie Prod'
+      library_shared: 'Tlie Shared'
+      environment: 'Tlie Prod'
       stage: 'Prod'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
       

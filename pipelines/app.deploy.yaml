@@ -11,7 +11,7 @@ stages:
     variables:
     - group: ${{ parameters.library }}
     - group: ${{ parameters.library_shared }}
-    displayName: Blazor App ${{ parameters.stage }}
+    displayName: Tlie App ${{ parameters.stage }}
     jobs:
       - deployment: Approval
         environment: ${{ parameters.environment }}
@@ -20,7 +20,7 @@ stages:
           - task: DownloadPipelineArtifact@2
             inputs:
               source: 'current'
-              artifact: blazorapp
+              artifact: TlieApp
               path: '$(Build.SourcesDirectory)/bin' 
           - task: AzureRmWebAppDeployment@4
             inputs:

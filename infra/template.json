@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "app_service_name": {
-            "defaultValue": "growth-day-2022-rene-lopez-dev",
+            "defaultValue": "tlie-asp-dev",
             "type": "String"
         },
         "location": {
@@ -17,6 +17,10 @@
         "shared_app_service_plan_name": {
             "defaultValue": "",
             "type": "String"
+        },
+        "environment": {
+            "defaultValue": "dev",
+            "type": "String"
         }
     },
     "resources": [
@@ -26,7 +30,7 @@
             "name": "[parameters('app_service_name')]",
             "location": "[parameters('location')]",
             "tags": {
-                "praxenter": "renelopez"
+                "environment": "[parameters('environment')]"
             },
             "kind": "app",
             "properties": {
@@ -78,7 +82,7 @@
                 "[resourceId('Microsoft.Web/sites', parameters('app_service_name'))]"
             ],
             "tags": {
-                "praxenter": "renelopez"
+                "environment": "[parameters('environment')]"
             },
             "properties": {
                 "allow": true
@@ -93,7 +97,7 @@
                 "[resourceId('Microsoft.Web/sites', parameters('app_service_name'))]"
             ],
             "tags": {
-                "praxenter": "renelopez"
+                "environment": "[parameters('environment')]"
             },
             "properties": {
                 "allow": true
@@ -108,7 +112,7 @@
                 "[resourceId('Microsoft.Web/sites', parameters('app_service_name'))]"
             ],
             "tags": {
-                "praxenter": "renelopez"
+                "environment": "[parameters('environment')]"
             },
             "properties": {
                 "numberOfWorkers": 1,
@@ -136,7 +140,7 @@
                 "use32BitWorkerProcess": true,
                 "webSocketsEnabled": true,
                 "alwaysOn": false,
-                "appCommandLine": "dotnet rene-lopez.dll",
+                "appCommandLine": "dotnet Tlie.App.dll",
                 "managedPipelineMode": "Integrated",
                 "virtualApplications": [
                     {

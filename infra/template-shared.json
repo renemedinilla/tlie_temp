@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "app_service_plan_name": {
-            "defaultValue": "growth-day-2022-rene-lopez-dev",
+            "defaultValue": "tlie-asp-dev",
             "type": "String"
         },
         "location": {
@@ -18,7 +18,7 @@
             "name": "[parameters('app_service_plan_name')]",
             "location": "[parameters('location')]",
             "tags": {
-                "praxenter": "renelopez"
+                "environment": "shared"
             },
             "sku": {
                 "name": "F1",

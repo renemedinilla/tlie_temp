@@ -18,7 +18,7 @@ stages:
       library_shared: 'Blazor Shared'
       environment: 'Blazor Dev'
       stage: 'Build'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
   - template: ./deploy.yaml
     parameters:
@@ -26,7 +26,7 @@ stages:
       library_shared: 'Blazor Shared'
       environment: 'Blazor Dev'
       stage: 'Dev'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
   - template: ./deploy.yaml
     parameters:
@@ -34,7 +34,7 @@ stages:
       library_shared: 'Blazor Shared'
       environment: 'Blazor Qa'
       stage: 'Qa'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
   - template: ./deploy.yaml
     parameters:
@@ -42,6 +42,6 @@ stages:
       library_shared: 'Blazor Shared'
       environment: 'Blazor Prod'
       stage: 'Prod'
-      service_connection: 'growth-day-2022-rene-lopez-sc'
+      service_connection: 'tlie-sc'
 
       

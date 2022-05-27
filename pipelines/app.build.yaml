@@ -16,9 +16,9 @@ stages:
       - job: build
         steps:
         - task: MSBuild@1
-          displayName: 'Build solution **/rene-lopez.csproj'
+          displayName: 'Build solution **/Tlie.App.csproj'
           inputs:
-            solution: '**/rene-lopez.csproj'
+            solution: '**/Tlie.App.csproj'
             msbuildArchitecture: x64
             msbuildArguments: '/p:DeployOnBuild=true /p:PublishProfile=FolderProfile'
         - task: NodeTool@0

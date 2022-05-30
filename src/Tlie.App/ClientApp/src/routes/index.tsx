@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import PrivateRoute from './PrivateRoute'
+import AppRoute from './AppRoute'
 
 // GENERAL
 import Home from '../pages/Home'
@@ -23,15 +23,15 @@ const AppRoutes = () => {
     <Routes>
       <Route path='/' element={<Home />} />
 
-      <Route path='/new' element={<InsuranceType/>} />
+      <Route path='/new' element={<AppRoute component={<InsuranceType/>} mainLayout='application'/>} />
 
-      <Route path='/renewal' element={<BeginRenewal/>} />
+      <Route path='/renewal' element={<AppRoute component={<BeginRenewal/>} mainLayout='application'/>} />
 
       <Route path='/admin' element={<AdminLogin/>} />
-      <Route path='/admin/portal' element={<PrivateRoute component={<AdminPortal/>} redirectTo="/admin" />} />
+      <Route path='/admin/portal' element={<AppRoute component={<AdminPortal/>} redirectTo="/admin" isPrivate mainLayout='portal'/>} />
 
       <Route path='/customer' element={<CustomerLogin/>} />
-      <Route path='/customer/portal' element={<PrivateRoute component={<CustomerPortal/>} redirectTo="/customer" />} />
+      <Route path='/customer/portal' element={<AppRoute component={<CustomerPortal/>} redirectTo="/customer" isPrivate mainLayout='portal'/>} />
     </Routes>
   )
 }

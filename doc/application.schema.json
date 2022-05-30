@@ -1,0 +1,461 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://tlie.com/application.schema.json",
+    "title": "TLIE application",
+    "description": "TLIE application wizard",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "isLawyer": {
+            "type": "boolean"
+        },
+        "isJudge": {
+            "type": "boolean"
+        },
+        "applicant": {
+            "type": "object",
+            "properties": {
+                "applicantId": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "type": "string"
+                },
+                "isFirmAdministrator": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "firmSection": {
+            "type": "object",
+            "properties": {
+                "isActive": {
+                    "type": "boolean"
+                },
+                "fields": {
+                    "type": "object",
+                    "properties": {
+                        "firmName": {
+                            "type": "string"
+                        },
+                        "practiceType": {
+                            "type": "string"
+                        },
+                        "establishmentDate": {
+                            "type": "string"
+                        },
+                        "contactInfo": {
+                            "type": "object",
+                            "properties": {
+                                "phoneNumber": {
+                                    "type": "string"
+                                },
+                                "websiteAddress": {
+                                    "type": "string"
+                                },
+                                "faxNumber": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "mailAddress": {
+                            "type": "object",
+                            "properties": {
+                                "principalAddress": {
+                                    "type": "string"
+                                },
+                                "suiteNumber": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "billingAddress": {
+                            "type": "object",
+                            "properties": {
+                                "principalAddress": {
+                                    "type": "string"
+                                },
+                                "suiteNumber": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "isBillingEqualToMail": {
+                            "type": "boolean"
+                        },
+                        "isSecondaryContactAdded": {
+                            "type": "boolean"
+                        },
+                        "secondaryContact": {
+                            "type": "object",
+                            "properties": {
+                                "emailAddress": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "practiceAreas": {
+                            "type": "array",
+                            "items": {
+                                "type": "object"
+                            }
+                        },
+                        "practiceAreasPercentage": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "subAreas": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "extraFields": {
+                    "type": "object",
+                    "properties": {
+                        "note": {
+                            "type": "string"
+                        },
+                        "firmFile": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "fileName": {
+                                    "type": "string"
+                                },
+                                "fileUrl": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "attorneysSection": {
+            "type": "object",
+            "properties": {
+                "isActive": {
+                    "type": "boolean"
+                },
+                "fields": {
+                    "type": "object",
+                    "properties": {
+                        "attorneys": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "resumeFile": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "fileName": {
+                                                "type": "string"
+                                            },
+                                            "fileUrl": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "isResumeAvailable": {
+                                        "type": "boolean"
+                                    },
+                                    "barCardNumber": {
+                                        "type": "number"
+                                    },
+                                    "position": {
+                                        "type": "string"
+                                    },
+                                    "emailAddress": {
+                                        "type": "string"
+                                    },
+                                    "yearsInPrivatePractice": {
+                                        "type": "number"
+                                    },
+                                    "license": {
+                                        "type": "object",
+                                        "properties": {
+                                            "licensedDate": {
+                                                "type": "string"
+                                            },
+                                            "isLicensedInOtherState": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    },
+                                    "workHistory": {
+                                        "type": "object",
+                                        "properties": {
+                                            "joinedDate": {
+                                                "type": "string"
+                                            },
+                                            "hoursPerWeek": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "extraFields": {
+                    "type": "object",
+                    "properties": {
+                        "note": {
+                            "type": "string"
+                        },
+                        "attorneysFile": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "fileName": {
+                                    "type": "string"
+                                },
+                                "fileUrl": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "liabilitySection": {
+            "type": "object",
+            "properties": {
+                "isActive": {
+                    "type": "boolean"
+                },
+                "fields": {
+                    "type": "object",
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "isFirmRecentlyInsured": {
+                                "type": "boolean"
+                            },
+                            "insurances": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "companyName": {
+                                            "type": "string"
+                                        },
+                                        "liabilityLimits": {
+                                            "type": "string"
+                                        },
+                                        "deductible": {
+                                            "type": "number"
+                                        },
+                                        "expirationDate": {
+                                            "type": "string"
+                                        },
+                                        "anualPremium": {
+                                            "type": "number"
+                                        },
+                                        "isTailCoverage": {
+                                            "type": "boolean"
+                                        },
+                                        "isCurrent": {
+                                            "type": "boolean"
+                                        },
+                                        "retroactiveDate": {
+                                            "type": "string"
+                                        },
+                                        "policyFile": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "fileName": {
+                                                    "type": "string"
+                                                },
+                                                "fileUrl": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "pastLiability": {
+                                "type": "object",
+                                "properties": {
+                                    "hasCanceledLiabilities": {
+                                        "type": "boolean"
+                                    },
+                                    "hasMalpracticeClaim": {
+                                        "type": "boolean"
+                                    },
+                                    "hasMalpracticeBasis": {
+                                        "type": "boolean"
+                                    },
+                                    "hasGrievanceComplain": {
+                                        "type": "boolean"
+                                    },
+                                    "hasDisclipinedAction": {
+                                        "type": "boolean"
+                                    },
+                                    "claims": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "firmName": {
+                                                    "type": "string"
+                                                },
+                                                "involvedMembers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "hasInvolvedMembers": {
+                                                    "type": "boolean"
+                                                },
+                                                "claimant": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "firstName": {
+                                                            "type": "string"
+                                                        },
+                                                        "lastName": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "hasClaimantName": {
+                                                    "type": "boolean"
+                                                },
+                                                "claimType": {
+                                                    "type": "string"
+                                                },
+                                                "claimDate": {
+                                                    "type": "string"
+                                                },
+                                                "hasClaimDate": {
+                                                    "type": "boolean"
+                                                },
+                                                "allegedErrorDate": {
+                                                    "type": "string"
+                                                },
+                                                "hasAllegedErrorDate": {
+                                                    "type": "boolean"
+                                                },
+                                                "isClaimClosed": {
+                                                    "type": "string"
+                                                },
+                                                "closingType": {
+                                                    "type": "string"
+                                                },
+                                                "totalLossPain": {
+                                                    "type": "number"
+                                                },
+                                                "insuerName": {
+                                                    "type": "string"
+                                                },
+                                                "hasInsuerName": {
+                                                    "type": "boolean"
+                                                },
+                                                "claimDescription": {
+                                                    "type": "string"
+                                                },
+                                                "hasClaimDescription": {
+                                                    "type": "string"
+                                                },
+                                                "caseDescription": {
+                                                    "type": "string"
+                                                },
+                                                "hasCaseDescription": {
+                                                    "type": "string"
+                                                },
+                                                "damageDescription": {
+                                                    "type": "string"
+                                                },
+                                                "hasDamageDescription": {
+                                                    "type": "string"
+                                                },
+                                                "claimFile": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "fileName": {
+                                                            "type": "string"
+                                                        },
+                                                        "fileUrl": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "quotesSection": {
+                "type": "object",
+                "properties": {
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "fields": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "policyType": {
+                                    "type": "string"
+                                },
+                                "liabilityLimits": {
+                                    "type": "string"
+                                },
+                                "deductible": {
+                                    "type": "number"
+                                }
+                            }   
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

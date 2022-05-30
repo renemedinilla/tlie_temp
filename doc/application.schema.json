@@ -260,166 +260,163 @@
                 "fields": {
                     "type": "object",
                     "properties": {
-                        "type": "object",
-                        "properties": {
-                            "isFirmRecentlyInsured": {
-                                "type": "boolean"
-                            },
-                            "insurances": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "companyName": {
-                                            "type": "string"
-                                        },
-                                        "liabilityLimits": {
-                                            "type": "string"
-                                        },
-                                        "deductible": {
-                                            "type": "number"
-                                        },
-                                        "expirationDate": {
-                                            "type": "string"
-                                        },
-                                        "anualPremium": {
-                                            "type": "number"
-                                        },
-                                        "isTailCoverage": {
-                                            "type": "boolean"
-                                        },
-                                        "isCurrent": {
-                                            "type": "boolean"
-                                        },
-                                        "retroactiveDate": {
-                                            "type": "string"
-                                        },
-                                        "policyFile": {
-                                            "type": "object",
-                                            "properties": {
-                                                "id": {
-                                                    "type": "string"
-                                                },
-                                                "fileName": {
-                                                    "type": "string"
-                                                },
-                                                "fileUrl": {
-                                                    "type": "string"
-                                                }
+                        "isFirmRecentlyInsured": {
+                            "type": "boolean"
+                        },
+                        "insurances": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "companyName": {
+                                        "type": "string"
+                                    },
+                                    "liabilityLimits": {
+                                        "type": "string"
+                                    },
+                                    "deductible": {
+                                        "type": "number"
+                                    },
+                                    "expirationDate": {
+                                        "type": "string"
+                                    },
+                                    "anualPremium": {
+                                        "type": "number"
+                                    },
+                                    "isTailCoverage": {
+                                        "type": "boolean"
+                                    },
+                                    "isCurrent": {
+                                        "type": "boolean"
+                                    },
+                                    "retroactiveDate": {
+                                        "type": "string"
+                                    },
+                                    "policyFile": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "fileName": {
+                                                "type": "string"
+                                            },
+                                            "fileUrl": {
+                                                "type": "string"
                                             }
                                         }
                                     }
                                 }
-                            },
-                            "pastLiability": {
-                                "type": "object",
-                                "properties": {
-                                    "hasCanceledLiabilities": {
-                                        "type": "boolean"
-                                    },
-                                    "hasMalpracticeClaim": {
-                                        "type": "boolean"
-                                    },
-                                    "hasMalpracticeBasis": {
-                                        "type": "boolean"
-                                    },
-                                    "hasGrievanceComplain": {
-                                        "type": "boolean"
-                                    },
-                                    "hasDisclipinedAction": {
-                                        "type": "boolean"
-                                    },
-                                    "claims": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {
-                                                "firmName": {
+                            }
+                        },
+                        "pastLiability": {
+                            "type": "object",
+                            "properties": {
+                                "hasCanceledLiabilities": {
+                                    "type": "boolean"
+                                },
+                                "hasMalpracticeClaim": {
+                                    "type": "boolean"
+                                },
+                                "hasMalpracticeBasis": {
+                                    "type": "boolean"
+                                },
+                                "hasGrievanceComplain": {
+                                    "type": "boolean"
+                                },
+                                "hasDisclipinedAction": {
+                                    "type": "boolean"
+                                },
+                                "claims": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "firmName": {
+                                                "type": "string"
+                                            },
+                                            "involvedMembers": {
+                                                "type": "array",
+                                                "items": {
                                                     "type": "string"
-                                                },
-                                                "involvedMembers": {
-                                                    "type": "array",
-                                                    "items": {
+                                                }
+                                            },
+                                            "hasInvolvedMembers": {
+                                                "type": "boolean"
+                                            },
+                                            "claimant": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "firstName": {
+                                                        "type": "string"
+                                                    },
+                                                    "lastName": {
                                                         "type": "string"
                                                     }
-                                                },
-                                                "hasInvolvedMembers": {
-                                                    "type": "boolean"
-                                                },
-                                                "claimant": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "firstName": {
-                                                            "type": "string"
-                                                        },
-                                                        "lastName": {
-                                                            "type": "string"
-                                                        }
-                                                    }
-                                                },
-                                                "hasClaimantName": {
-                                                    "type": "boolean"
-                                                },
-                                                "claimType": {
-                                                    "type": "string"
-                                                },
-                                                "claimDate": {
-                                                    "type": "string"
-                                                },
-                                                "hasClaimDate": {
-                                                    "type": "boolean"
-                                                },
-                                                "allegedErrorDate": {
-                                                    "type": "string"
-                                                },
-                                                "hasAllegedErrorDate": {
-                                                    "type": "boolean"
-                                                },
-                                                "isClaimClosed": {
-                                                    "type": "string"
-                                                },
-                                                "closingType": {
-                                                    "type": "string"
-                                                },
-                                                "totalLossPain": {
-                                                    "type": "number"
-                                                },
-                                                "insuerName": {
-                                                    "type": "string"
-                                                },
-                                                "hasInsuerName": {
-                                                    "type": "boolean"
-                                                },
-                                                "claimDescription": {
-                                                    "type": "string"
-                                                },
-                                                "hasClaimDescription": {
-                                                    "type": "string"
-                                                },
-                                                "caseDescription": {
-                                                    "type": "string"
-                                                },
-                                                "hasCaseDescription": {
-                                                    "type": "string"
-                                                },
-                                                "damageDescription": {
-                                                    "type": "string"
-                                                },
-                                                "hasDamageDescription": {
-                                                    "type": "string"
-                                                },
-                                                "claimFile": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "string"
-                                                        },
-                                                        "fileName": {
-                                                            "type": "string"
-                                                        },
-                                                        "fileUrl": {
-                                                            "type": "string"
-                                                        }
+                                                }
+                                            },
+                                            "hasClaimantName": {
+                                                "type": "boolean"
+                                            },
+                                            "claimType": {
+                                                "type": "string"
+                                            },
+                                            "claimDate": {
+                                                "type": "string"
+                                            },
+                                            "hasClaimDate": {
+                                                "type": "boolean"
+                                            },
+                                            "allegedErrorDate": {
+                                                "type": "string"
+                                            },
+                                            "hasAllegedErrorDate": {
+                                                "type": "boolean"
+                                            },
+                                            "isClaimClosed": {
+                                                "type": "string"
+                                            },
+                                            "closingType": {
+                                                "type": "string"
+                                            },
+                                            "totalLossPain": {
+                                                "type": "number"
+                                            },
+                                            "insuerName": {
+                                                "type": "string"
+                                            },
+                                            "hasInsuerName": {
+                                                "type": "boolean"
+                                            },
+                                            "claimDescription": {
+                                                "type": "string"
+                                            },
+                                            "hasClaimDescription": {
+                                                "type": "string"
+                                            },
+                                            "caseDescription": {
+                                                "type": "string"
+                                            },
+                                            "hasCaseDescription": {
+                                                "type": "string"
+                                            },
+                                            "damageDescription": {
+                                                "type": "string"
+                                            },
+                                            "hasDamageDescription": {
+                                                "type": "string"
+                                            },
+                                            "claimFile": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "fileName": {
+                                                        "type": "string"
+                                                    },
+                                                    "fileUrl": {
+                                                        "type": "string"
                                                     }
                                                 }
                                             }
@@ -430,28 +427,28 @@
                         }
                     }
                 }
-            },
-            "quotesSection": {
-                "type": "object",
-                "properties": {
-                    "isActive": {
-                        "type": "boolean"
-                    },
-                    "fields": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "policyType": {
-                                    "type": "string"
-                                },
-                                "liabilityLimits": {
-                                    "type": "string"
-                                },
-                                "deductible": {
-                                    "type": "number"
-                                }
-                            }   
+            }
+        },
+        "quotesSection": {
+            "type": "object",
+            "properties": {
+                "isActive": {
+                    "type": "boolean"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "policyType": {
+                                "type": "string"
+                            },
+                            "liabilityLimits": {
+                                "type": "string"
+                            },
+                            "deductible": {
+                                "type": "number"
+                            }
                         }
                     }
                 }
